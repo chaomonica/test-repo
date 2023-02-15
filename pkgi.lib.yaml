@@ -1,0 +1,10 @@
+#@ load("@ytt:overlay", "overlay")
+#@ def customize():
+
+#! rewrite the default serviceaccount secrets/ requires gitlab-workload-token and github-workload-token secrets from /custom-resources/workload-sa/workload-sa-with-secrets.yaml
+#@overlay/match by=overlay.subset({"apiVersion": "packaging.carvel.dev/v1alpha1", "kind": "PackageInstall","metadata":{"name":"grype-scanner-testing-nsp"}}), expects="0+"
+---
+metadata:
+  annotations:
+    ext.packaging.carvel.dev/ytt-paths-from-secret-name.0: grype-airgap-override-stale-db-overlay
+#@  end
