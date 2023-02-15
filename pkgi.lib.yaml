@@ -14,6 +14,6 @@
 ---
 metadata:
   annotations:
-    #@overlay/append missing_ok=True
+    #@overlay/match missing_ok=True
     ext.packaging.carvel.dev/ytt-paths-from-secret-name.0: grype-airgap-override-stale-db-overlay
 #@  end
