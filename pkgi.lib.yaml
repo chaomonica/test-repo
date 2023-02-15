@@ -1,5 +1,4 @@
 #@ load("@ytt:overlay", "overlay")
-#@ def customize():
 
 #@ def matchGrypeScanners(index, left, right):
   #@ if left["apiVersion"] != "packaging.carvel.dev/v1alpha1" or left["kind"] != "PackageInstall":
@@ -8,6 +7,8 @@
 
   #@ return left["metadata"]["name"].startswith("grype-scanner")
 #@ end
+
+#@ def customize():
 
 #@overlay/match by=matchGrypeScanners, expects="0+"
 ---
